@@ -16,6 +16,13 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "husky": "^7.0.2"
+    "husky": "^6.0.0",
+    "eslint": "^7.26.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.0"
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write",
+    "*.js": "eslint --cache --fix"
   }
 }
