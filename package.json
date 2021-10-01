@@ -1,11 +1,12 @@
 {
-  "name": "homework-1",
+  "name": "homework-1-test",
   "version": "1.1.0",
-  "description": "homework-1",
+  "description": "homework-1-test",
   "main": "index.js",
   "scripts": {
-    "start": "node src/server",
-    "prepare": "husky install"
+    "start": "node ./src/server",
+    "prepare": "husky install",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Menshikov Kirill",
   "license": "ISC",
