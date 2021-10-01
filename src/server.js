@@ -47,8 +47,8 @@ app.get("/merge", (req, res) => {
     const color = [...mergeUrl.color.split(",")].map(elem => parseInt(elem));
     replaceBackground(frontImage, backImage, color, mergeUrl.threshold).then(
         (readableStream) => { 
-            res.set({"Content-Type": "image/jpeg"});
-            res.set({"Content-Disposition": "attachment"});
+            // res.set({"Content-Type": "image/jpeg"});
+            // res.set({"Content-Disposition": "attachment"});
             readableStream.pipe(res);
         }
     );
@@ -72,5 +72,7 @@ app.post("/upload", upload.single("image"), function (req, res) {
     res.send(JSON.stringify({id: image.id}));
 });
 
-app.listen(PORT);
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
+});
 
