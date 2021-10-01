@@ -1,0 +1,17 @@
+{
+  "name": "homework-1",
+  "version": "1.0.0",
+  "description": "homework-1",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server"
+  },
+  "author": "Menshikov Kirill",
+  "license": "ISC",
+  "dependencies": {
+    "backrem": "^1.1.0",
+    "express": "^4.17.1",
+    "multer": "^1.4.3",
+    "uuid": "^8.3.2"
+  }
+}
