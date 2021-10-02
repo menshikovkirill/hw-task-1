@@ -47,9 +47,12 @@ app.get("/merge", (req, res) => {
     const color = [...mergeUrl.color.split(",")].map(elem => parseInt(elem));
     replaceBackground(frontImage, backImage, color, mergeUrl.threshold).then(
         (readableStream) => { 
-            // res.set({"Content-Type": "image/jpeg"});
-            // res.set({"Content-Disposition": "attachment"});
+            res.set({"Content-Type": "image/jpeg"});
+            res.set({"Content-Disposition": "attachment"});
             readableStream.pipe(res);
+        }, 
+        () => {
+            res.send(500)
         }
     );
 }); 
@@ -69,7 +72,7 @@ app.post("/upload", upload.single("image"), function (req, res) {
     const image = new Image(req.file.filename.split('.')[0], req.file.size);
     db.insert(image); 
 
-    res.send({id: image.id});
+    res.send([{id: image.id}]);
 });
 
 app.listen(PORT, () => {
