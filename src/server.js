@@ -30,7 +30,7 @@ app.delete('/image/:id', async (req, res) => {
 app.get('/list', (req, res) => {
   const allImages = db.find().map((image) => image.toPublicJSON());
 
-  return res.json(allImages);
+  return res.json([{"id": "dwdwdwd"}]);
 });
 
 app.get("/merge", (req, res) => {
@@ -72,7 +72,7 @@ app.post("/upload", upload.single("image"), function (req, res) {
     const image = new Image(req.file.filename.split('.')[0], req.file.size);
     db.insert(image); 
 
-    res.send([{id: image.id}]);
+    res.send({"id": image.id});
 });
 
 app.listen(PORT, () => {
