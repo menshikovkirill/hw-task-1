@@ -69,7 +69,7 @@ app.post("/upload", upload.single("image"), function (req, res) {
     const image = new Image(req.file.filename.split('.')[0], req.file.size);
     db.insert(image); 
 
-    res.send(JSON.stringify({id: image.id}));
+    res.send({id: image.id});
 });
 
 app.listen(PORT, () => {
